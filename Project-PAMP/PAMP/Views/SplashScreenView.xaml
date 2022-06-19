@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PAMP.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#EFEFEF">
+             Background="#2e2e2e">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -22,11 +22,11 @@
             <Border Grid.Row="1" CornerRadius="10">
                 <StackPanel>
                     <TextBlock Text="PAMP" FontSize="32" Foreground="White"
-                           HorizontalAlignment="Center" Margin="0 50 0 10"/>
+                           HorizontalAlignment="Center" Margin="0 50 0 10" FontFamily="Lato"/>
                     <TextBlock Text="Pixel Art Manipulation Program" Foreground="White"
-                       FontSize="18"  HorizontalAlignment="Center" Margin="0 0 0 40"/>
+                       FontSize="18"  HorizontalAlignment="Center" Margin="0 0 0 40" FontFamily="Lato Light"/>
                     <Button Content="New project" Width="120" Padding="15" 
-                              Foreground="White">
+                              Foreground="White" FontFamily="Lato">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5" />
@@ -39,7 +39,7 @@
                         </Button.Background>
                     </Button>
                     <Button Content="Load project" Width="120" Padding="15" Margin="20"
-                              Foreground="White">
+                              Foreground="White" FontFamily="Lato">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="5" />

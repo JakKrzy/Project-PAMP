@@ -23,12 +23,12 @@ namespace PAMP.Models
 
         public void onLeftClick(Layer l, int x, int y)
         {
-            l.onClick(PrimaryColour, x, y);            
+            l.setPixel(PrimaryColour, x, y);            
         }
 
         public void onRightClick(Layer l, int x, int y)
         {
-            l.onClick(SecondaryColour, x, y);
+            l.setPixel(SecondaryColour, x, y);
         }
     }
 }

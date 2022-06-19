@@ -24,7 +24,7 @@ namespace PAMP.Models
             isVisible = !isVisible;
         }
 
-        public void onClick(Colour c, int x, int y)
+        public void setPixel(Colour c, int x, int y)
         {
             if (x < 0 && y < 0) throw new ArgumentException();
             if (x > width && y > height) throw new ArgumentException();
