@@ -16,6 +16,7 @@ namespace PAMP.Models
             toolList = new List<Tool>();
             toolList.Add(new Pencil());
             toolList.Add(new Eraser());
+            selectedTool = toolList[0];
         }
 
         public void setTool(int i)

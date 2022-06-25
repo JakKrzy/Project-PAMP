@@ -12,16 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PAMP.ViewModels;
 
 namespace PAMP.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy WorkspaceView.xaml
+    /// Logika interakcji dla klasy ImageView.xaml
     /// </summary>
-    public partial class WorkspaceView : UserControl
+    public partial class ImageView : UserControl
     {
-        public WorkspaceView()
+        public ImageView()
         {
             InitializeComponent();
         }

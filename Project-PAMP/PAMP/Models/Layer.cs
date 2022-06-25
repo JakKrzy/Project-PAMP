@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 namespace PAMP.Models
 {
     public class Layer
-    {
-        readonly int width, height;
+    {   
+        int width, height;
+        string name;
         Colour[,] bmp;
         bool isVisible = true;
 
-        public Layer(int w, int h)
+        public Layer(string name, int w, int h)
         {
+            this.name = name;
             width = w;
             height = h;
             bmp = new Colour[w, h];
@@ -30,5 +32,11 @@ namespace PAMP.Models
             if (x > width && y > height) throw new ArgumentException();
             bmp[x, y].setColour(c.Red, c.Green, c.Blue, c.Alpha);
         }
+
+        public string Name { get { return name; } }
+        public int Width { get { return width; } }
+        public int Height { get { return height; } }
+        public Colour[,] BMP { get { return bmp; } }
+        public bool IsVisible { get { return isVisible; } }
     }
 }

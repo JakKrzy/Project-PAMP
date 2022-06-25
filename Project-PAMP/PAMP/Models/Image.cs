@@ -17,16 +17,16 @@ namespace PAMP.Models
             width = w;
             height = h;
             layerList = new List<Layer>();
-            layerList.Add(new Layer(width, height));
+            layerList.Add(new Layer("Background", width, height));
             selectedLayer = layerList[0];
         }
 
         /// <summary>
         /// Creates a new Layer and changes the selected layer to newly created one
         /// </summary>
-        public void newLayer()
+        public void newLayer(string name)
         {
-            Layer nl = new Layer(width, height);
+            Layer nl = new Layer(name, width, height);
             layerList.Add(nl);
             selectedLayer = nl;
 

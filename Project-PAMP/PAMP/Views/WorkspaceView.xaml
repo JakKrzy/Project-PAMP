@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PAMP.Views"
-             xmlns:views="clr-namespace:PAMP.Views"
+             xmlns:views="clr-namespace:PAMP.Views" 
+             xmlns:viewmodels="clr-namespace:PAMP.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:WorkspaceViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920"
              Background="#2e2e2e">
@@ -13,13 +14,15 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="10"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"></ColumnDefinition>
-            <ColumnDefinition Width="10"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="250" />
+            
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
         </Grid.ColumnDefinitions>
-
+        <!-- Export and save buttons -->
         <Grid Grid.Row="0" Grid.Column="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -55,6 +58,11 @@
             </Button>
         </Grid>
         <Separator Grid.Row="1" Grid.ColumnSpan="3"></Separator>
-        <views:ToolboxView Grid.Row="2"></views:ToolboxView>
+        
+        <!-- Seperate views for each panel in workspace -->
+
+        <views:ToolboxView Grid.Row="2" />
+        <views:ImageView Grid.Row="2" Grid.Column="1" DataContext="{Binding Image}"/>
+        <views:LayersView Grid.Column="2" Grid.Row="2"/>
     </Grid>
 </UserControl>

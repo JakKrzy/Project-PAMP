@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:PAMP" xmlns:views="clr-namespace:PAMP.Views"
         mc:Ignorable="d"
         Title="PAMP" MinWidth="1280" MinHeight="720"
+        WindowState="Maximized"
         >
     <Grid>
-        <views:SplashScreenView />
+        <views:WorkspaceView DataContext="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

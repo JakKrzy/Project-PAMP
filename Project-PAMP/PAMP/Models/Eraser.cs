@@ -23,7 +23,7 @@ namespace PAMP.Models
 
         public void onLeftClick(Layer l, int x, int y)
         {
-            l.setPixel(new Colour(0,0,0,0), x, y);
+            l.setPixel(new Colour(0,0,0), x, y);
         }
     }
 }

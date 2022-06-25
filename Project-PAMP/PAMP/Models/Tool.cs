@@ -8,7 +8,7 @@ namespace PAMP.Models
 {
     public abstract class Tool
     {
-        Colour primaryColour = new(0,0,0,255), secondaryColour = new(255,255,255,255);
+        Colour primaryColour = new(0,0,0), secondaryColour = new(255,255,255);
 
         public void setPrimaryColour(int r, int g, int b, int a)
         {
