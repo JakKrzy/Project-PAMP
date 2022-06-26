@@ -19,48 +19,55 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="40" />
             </Grid.RowDefinitions>
-            <Border Grid.Row="1" CornerRadius="10">
-                <StackPanel>
-                    <TextBlock Text="PAMP" FontSize="32" Foreground="White"
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="1" CornerRadius="10">
+                    <StackPanel>
+                        <TextBlock Text="PAMP" FontSize="32" Foreground="White"
                            HorizontalAlignment="Center" Margin="0 50 0 10" FontFamily="Lato"/>
-                    <TextBlock Text="Pixel Art Manipulation Program" Foreground="White"
+                        <TextBlock Text="Pixel Art Manipulation Program" Foreground="White"
                        FontSize="18"  HorizontalAlignment="Center" Margin="0 0 0 40" FontFamily="Lato Light"/>
-                    <Button Content="New project" Width="120" Padding="15" 
-                              Foreground="White" FontFamily="Lato">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5" />
-                                <Setter Property="BorderThickness" Value="0" />
-                            </Style>
-                        </Button.Resources>
-                        
-                        <Button.Background>
-                            <SolidColorBrush Color="#535353" Opacity="0.5" />
-                        </Button.Background>
-                    </Button>
-                    <Button Content="Load project" Width="120" Padding="15" Margin="20"
-                              Foreground="White" FontFamily="Lato">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="5" />
-                                <Setter Property="BorderThickness" Value="0" />
-                            </Style>
-                        </Button.Resources>
-                        <Button.Background>
-                            <SolidColorBrush Color="#535353" Opacity="0.5" />
-                        </Button.Background>
-                    </Button>
-                </StackPanel>
+                        <Button Content="New project" Width="120" Padding="15" 
+                              Foreground="White" FontFamily="Lato" Command="{Binding NewProjectCommand}">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Style>
+                            </Button.Resources>
 
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
-                        <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.1" Color="#5b3cff" />
-                            <GradientStop Offset="1" Color="#FF9900" />
-                        </LinearGradientBrush.GradientStops>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
+                            <Button.Background>
+                                <SolidColorBrush Color="#535353" Opacity="0.5" />
+                            </Button.Background>
+                        </Button>
+                        <Button Content="Load project" Width="120" Padding="15" Margin="20"
+                              Foreground="White" FontFamily="Lato">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="5" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Style>
+                            </Button.Resources>
+                            <Button.Background>
+                                <SolidColorBrush Color="#535353" Opacity="0.5" />
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                            <LinearGradientBrush.GradientStops>
+                                <GradientStop Offset="0.1" Color="#5b3cff" />
+                                <GradientStop Offset="1" Color="#FF9900" />
+                            </LinearGradientBrush.GradientStops>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

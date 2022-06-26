@@ -28,7 +28,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button Content="Export" Margin="10 5 5 5" Foreground="White" >
+            <Button Content="Export" Margin="10 5 5 5" Foreground="White" Command="{Binding ExportCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="2" />
@@ -44,7 +44,7 @@
                 </Button.Background>
             </Button>
 
-            <Button Content="Save" Margin="5 5 10 5" Foreground="White" Grid.Column="1">
+            <Button Content="Save" Margin="5 5 10 5" Foreground="White" Grid.Column="1" Command="{Binding SaveCommand}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="2" />
@@ -61,8 +61,8 @@
         
         <!-- Seperate views for each panel in workspace -->
 
-        <views:ToolboxView Grid.Row="2" />
+        <views:ToolboxView Grid.Row="2" DataContext="{Binding ToolVM}"/>
         <views:ImageView Grid.Row="2" Grid.Column="1" DataContext="{Binding Image}"/>
-        <views:LayersView Grid.Column="2" Grid.Row="2"/>
+        <views:LayersView Grid.Column="2" Grid.Row="2" DataContext="{Binding LayerList}"/>
     </Grid>
 </UserControl>

@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:PAMP.Views" xmlns:viewmodels="clr-namespace:PAMP.ViewModels"
+             xmlns:local="clr-namespace:PAMP.Views" 
+             xmlns:vms="clr-namespace:PAMP.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="150">
     <Grid>
@@ -21,7 +22,7 @@
                     </Grid.RowDefinitions>
                     <!-- Tool selection buttons -->
                     <Button Content="Pencil" Background="#3f3f3f" Foreground="White"
-                            Margin="5">
+                            Margin="5" Command="{Binding SelectPencilCommand}">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="2" />
@@ -29,7 +30,8 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Content="Eraser" Grid.Column="1" Background="#3f3f3f" Foreground="White" Margin="5">
+                    <Button Content="Eraser" Grid.Column="1" Background="#3f3f3f" Foreground="White"
+                            Margin="5" Command="{Binding SelectEraserCommand}">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="2" />
@@ -138,7 +140,16 @@
                     <Slider Grid.Column="1" Grid.Row="3" Margin="5" Minimum="0" Maximum="255" Value="{Binding SAlpha}"></Slider>
                 </Grid>
                 <Separator Margin="5 10"></Separator>
-                <local:PencilOptView />
+                
+                <ContentControl Content="{Binding CurrentToolOptions}"></ContentControl>
+                <StackPanel.Resources>
+                    <DataTemplate DataType="{x:Type vms:PencilOptViewModel}">
+                        <local:PencilOptView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vms:EraserOptViewModel}">
+                        <local:EraserOptView />
+                    </DataTemplate>
+                </StackPanel.Resources>
             </StackPanel>
         </Border>
     </Grid>

@@ -5,6 +5,7 @@ using System.Text;
 using PAMP.Models;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Input;
 
 namespace PAMP.ViewModels
 {
@@ -13,6 +14,9 @@ namespace PAMP.ViewModels
         private int x, y;
         private Colour col;
         private Brush br;
+        private ICommand useTool;
+
+        public ICommand UseTool { get { return useTool; } set { useTool = value; } }
         public PixelViewModel(int x, int y)
         {
             X = x; Y = y;
@@ -42,7 +46,8 @@ namespace PAMP.ViewModels
             get { return col; }
             set
             {
-                col = value; 
+                col = value;
+                Br = col.toBrush();
                 OnPropertyChange(nameof(Col));
             }
         }

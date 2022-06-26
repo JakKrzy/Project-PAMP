@@ -41,6 +41,9 @@ namespace PAMP.Models
             layerList.RemoveAt(i);
         }
 
+        public int Height { get { return height; } }
+        public int Width { get { return width; } }
+
         public void export()
         {
             // TODO

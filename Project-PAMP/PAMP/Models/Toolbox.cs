@@ -9,21 +9,16 @@ namespace PAMP.Models
     public class Toolbox
     {
         Tool selectedTool;
-        List<Tool> toolList;
 
         public Toolbox()
         {
-            toolList = new List<Tool>();
-            toolList.Add(new Pencil());
-            toolList.Add(new Eraser());
-            selectedTool = toolList[0];
+            selectedTool = new Pencil();
         }
 
-        public void setTool(int i)
+        public Tool SelectedTool 
         {
-            selectedTool = toolList[i];
+            get { return selectedTool; }
+            set { selectedTool = value; }
         }
-
-        public Tool SelectedTool { get { return selectedTool; } }
     }
 }

@@ -17,6 +17,9 @@ namespace PAMP.Models
             image = new Image(w, h);
         }
 
+        public Toolbox Toolbox { get { return toolbox; } }
+        public Image Image { get { return image; } }
+
         public void saveWorkspace()
         {
            // TODO

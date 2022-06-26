@@ -8,19 +8,19 @@ namespace PAMP.Models
 {
     public abstract class Tool
     {
-        Colour primaryColour = new(0,0,0), secondaryColour = new(255,255,255);
+        Colour primaryColour = new(255, 255, 255), secondaryColour = new(0, 0, 0);
 
-        public void setPrimaryColour(int r, int g, int b, int a)
+        public void setPrimaryColour(Colour c)
         {
-            primaryColour.setColour(r, g, b, a);
+            primaryColour = c;
         }
 
-        public void setSecondaryColour(int r, int g, int b, int a)
+        public void setSecondaryColour(Colour c)
         {
-            secondaryColour.setColour(r, g, b, a);
+            secondaryColour = c;
         }
 
-        public Colour PrimaryColour { get => primaryColour; }
-        public Colour SecondaryColour { get => secondaryColour; }
+        public Colour PrimaryColour { get => primaryColour; set { primaryColour = value; } }
+        public Colour SecondaryColour { get => secondaryColour; set { secondaryColour = value; } }
     }
 }

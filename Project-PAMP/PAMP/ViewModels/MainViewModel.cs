@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PAMP.Models;
+using PAMP.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +10,18 @@ namespace PAMP.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
+        private readonly NavigationStore _navigationStore;
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
 
-        public MainViewModel()
+        public MainViewModel(NavigationStore ns)
         {
-            CurrentViewModel = new WorkspaceViewModel();
+            _navigationStore = ns;
+            _navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+        }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChange(nameof(CurrentViewModel));
         }
     }
 }
