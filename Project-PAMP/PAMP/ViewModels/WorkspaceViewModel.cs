@@ -1,4 +1,5 @@
-﻿using PAMP.Models;
+﻿using PAMP.Commands;
+using PAMP.Models;
 using PAMP.Stores;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,8 @@ namespace PAMP.ViewModels
             toolOptionsStore = new ToolOptionsStore();
             imgV = new ImageViewModel(ws);
             toolVM = new ToolboxViewModel(ws, toolOptionsStore);
-            layersVM = new LayerListViewModel();
+            layersVM = new LayerListViewModel(ws);
+            ExportCommand = new ExportCommand(ws);
         }
 
         public ICommand ExportCommand { get; }

@@ -19,6 +19,13 @@ namespace PAMP.Models
             width = w;
             height = h;
             bmp = new Colour[w, h];
+            for(int i = 0; i < w; i++)
+            {
+                for(int j = 0; j < h; j++)
+                {
+                    bmp[i, j] = new Colour(0,0,0,0);
+                }
+            }
         }
 
         public void toggleVisibility()

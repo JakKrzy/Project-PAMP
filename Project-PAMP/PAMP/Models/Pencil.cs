@@ -20,15 +20,5 @@ namespace PAMP.Models
         {
             size = n;
         }
-
-        public void onLeftClick(Layer l, int x, int y)
-        {
-            l.setPixel(PrimaryColour, x, y);            
-        }
-
-        public void onRightClick(Layer l, int x, int y)
-        {
-            l.setPixel(SecondaryColour, x, y);
-        }
     }
 }

@@ -29,6 +29,7 @@ namespace PAMP.ViewModels
                 {
                     PixelViewModel px = new PixelViewModel(i, j);
                     px.UseTool = new UseToolCommand(_workspace, this, i, j);
+                    px.UseSecTool = new UseSecToolCommand(_workspace, this, i, j);
                     indexedPixels[i, j] = px;
                     _pixels.Add(px);
                 }

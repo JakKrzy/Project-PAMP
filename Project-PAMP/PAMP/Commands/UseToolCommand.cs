@@ -37,6 +37,7 @@ namespace PAMP.Commands
                         for (var j = _y - (size - 1); j < _y + size; j++)
                         {
                             if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                            _workspace.Image.SelectedLayer.setPixel(c, i, j);
                             _imageViewModel.SetPixel(i, j, c);
                         }
                     }
@@ -49,11 +50,53 @@ namespace PAMP.Commands
                         for (var j = _y - (e.Size - 1); j < _y + e.Size; j++)
                         {
                             if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                            _workspace.Image.SelectedLayer.setPixel(c, i, j);
                             _imageViewModel.SetPixel(i, j, c);
                         }
                     }
                     break;
-                
+                case Rectangle:
+                    Rectangle r = (Rectangle)_workspace.Toolbox.SelectedTool;
+                    c = _workspace.Toolbox.SelectedTool.PrimaryColour;
+                    if(r.Fill)
+                    {
+                        for(var i = _x; i < _x + r.Width; i++)
+                        {
+                            for(var j = _y; j < _y - r.Height; j++)
+                            {
+                                if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                                _workspace.Image.SelectedLayer.setPixel(c, i, j);
+                                _imageViewModel.SetPixel(i, j, c);
+                            }
+                        }
+                    } 
+                    else
+                    {
+                        for(var i = _x; i < _x + r.Width; i++)
+                        {
+                            var j = _y;
+                            if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                            _workspace.Image.SelectedLayer.setPixel(c, i, j);
+                            _imageViewModel.SetPixel(i, j, c);
+                            j = _y - r.Height;
+                            if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                            _workspace.Image.SelectedLayer.setPixel(c, i, j);
+                            _imageViewModel.SetPixel(i, j, c);
+                        }
+                        for(int i = _y; i < _y - r.Height; i--)
+                        {
+                            var j = _x;
+                            if(i < 0 || j < 0 || i >= width || j >= height) continue;
+                            _workspace.Image.SelectedLayer.setPixel(c, j, i);
+                            _imageViewModel.SetPixel(j, i, c);
+                            j = _x + r.Width;
+                            if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                            _workspace.Image.SelectedLayer.setPixel(c, j, i);
+                            _imageViewModel.SetPixel(j, i, c);
+                        }
+                    }
+                    break;
+
             }
         }
     }

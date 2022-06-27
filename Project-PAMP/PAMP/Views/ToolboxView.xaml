@@ -39,7 +39,8 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button Content="Rectangle" Grid.Row="1" Background="#3f3f3f" Foreground="White" Margin="5">
+                    <Button Content="Rectangle" Grid.Row="1" Background="#3f3f3f" Foreground="White" Margin="5"
+                            Command="{Binding SelectRectangleCommand}">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="2" />
@@ -148,6 +149,9 @@
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type vms:EraserOptViewModel}">
                         <local:EraserOptView />
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type vms:RectOptViewModel}">
+                        <local:RectOptView />
                     </DataTemplate>
                 </StackPanel.Resources>
             </StackPanel>

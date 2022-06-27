@@ -21,28 +21,11 @@ namespace PAMP.Models
             selectedLayer = layerList[0];
         }
 
-        /// <summary>
-        /// Creates a new Layer and changes the selected layer to newly created one
-        /// </summary>
-        public void newLayer(string name)
-        {
-            Layer nl = new Layer(name, width, height);
-            layerList.Add(nl);
-            selectedLayer = nl;
-
-        }
-
-        /// <summary>
-        /// Removes a layer at index i
-        /// </summary>
-        /// <param name="i"> index of layer to be removed </param>
-        public void removeLayer(int i)
-        {
-            layerList.RemoveAt(i);
-        }
-
+        public List<Layer> LayerList { get { return layerList; } }
         public int Height { get { return height; } }
         public int Width { get { return width; } }
+
+        public Layer SelectedLayer { get; set; }
 
         public void export()
         {

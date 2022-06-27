@@ -23,7 +23,12 @@
             <ItemsControl ItemsSource="{Binding Pixels}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Content=" " Height="10" Width="10" Background="{Binding Br}" Command="{Binding UseTool}"/>
+                        <Button Content=" " Height="10" Width="10" Background="{Binding Br}" Command="{Binding UseTool}">
+                            <Button.InputBindings>
+                                <MouseBinding Gesture="LeftClick" Command="{Binding UseTool}" />
+                                <MouseBinding Gesture="RightClick" Command="{Binding UseSecTool}" />
+                            </Button.InputBindings>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>

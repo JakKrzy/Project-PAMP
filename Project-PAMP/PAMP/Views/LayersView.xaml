@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:fa="http://schemas.fontawesome.io/icons/"
-             xmlns:local="clr-namespace:PAMP.Views" xmlns:viewmodels="clr-namespace:PAMP.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:WorkspaceViewModel}"
+             xmlns:local="clr-namespace:PAMP.Views" 
+             xmlns:viewmodels="clr-namespace:PAMP.ViewModels"
+             
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="300">
     <Grid Margin="10 0 0 0">
@@ -22,10 +24,10 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <!-- Textbox for new label's name -->
-            <TextBox Background="#3f3f3f" Margin="10" Foreground="White" Text="New Layer" 
+            <TextBox Background="#3f3f3f" Margin="10" Foreground="White" Text="{Binding NewLayerName, UpdateSourceTrigger=PropertyChanged}" 
                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             <!-- Button for accepting the name and creating new layer -->
-            <Button Background="#3f3f3f" Margin="10" Padding="5" Grid.Column="1"> 
+            <Button Background="#3f3f3f" Margin="10" Padding="5" Grid.Column="1" Command="{Binding NewLayerCommand}"> 
                 <fa:ImageAwesome Icon="Plus" Foreground="White"></fa:ImageAwesome>
                 <Button.Resources>
                     <Style TargetType="Border">
@@ -48,11 +50,21 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>            
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Name}" Grid.Column="0" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                        <Button Grid.Column="1" Height="25" Margin="5" HorizontalAlignment="Right">
+                        <Button Content="{Binding Name}" Grid.Column="0" Foreground="White" Background="#3f3f3f"
+                                VerticalAlignment="Center" HorizontalAlignment="Center" Padding="10 10"
+                                Command="{Binding SelectLayerCommand}">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="2" />
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <Button Grid.Column="1" Height="25" Margin="5" HorizontalAlignment="Right" Background="#3f3f3f" 
+                                Command="{Binding DeleteLayerCommand}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="2" />

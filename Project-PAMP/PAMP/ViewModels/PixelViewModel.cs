@@ -15,8 +15,10 @@ namespace PAMP.ViewModels
         private Colour col;
         private Brush br;
         private ICommand useTool;
+        private ICommand useSecTool;
 
         public ICommand UseTool { get { return useTool; } set { useTool = value; } }
+        public ICommand UseSecTool { get { return useSecTool; } set { useSecTool = value; } } 
         public PixelViewModel(int x, int y)
         {
             X = x; Y = y;

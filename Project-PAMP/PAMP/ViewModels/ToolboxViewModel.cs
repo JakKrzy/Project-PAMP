@@ -15,6 +15,7 @@ namespace PAMP.ViewModels
     {
         public ICommand SelectPencilCommand { get; }
         public ICommand SelectEraserCommand { get; }
+        public ICommand SelectRectangleCommand { get; }
 
         Brush PCBrush;
         Brush SCBrush;
@@ -57,6 +58,7 @@ namespace PAMP.ViewModels
             SBrush = SC.toBrush();
             SelectPencilCommand = new SelectPencilCommand(ws, this, _toolOptionsStore);
             SelectEraserCommand = new SelectEraserCommand(ws, this, _toolOptionsStore);
+            SelectRectangleCommand = new SelectRectangleCommand(ws, this, _toolOptionsStore);
             _toolOptionsStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
         private void OnCurrentViewModelChanged()
