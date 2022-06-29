@@ -13,14 +13,13 @@ namespace PAMP.ViewModels
         Rectangle rect;
         bool fill;
         int width, height;
-        string swidth, sheight;
 
         public RectOptViewModel(Workspace ws)
         {
             _workspace = ws;
-            SWidth = "1";
-            SHeight = "1";
-            rect = (Rectangle)_workspace.Toolbox.SelectedTool;  
+            rect = (Rectangle)_workspace.Toolbox.SelectedTool;
+            Width = 1;
+            Height = 1;
         }
 
         public int Width
@@ -31,28 +30,6 @@ namespace PAMP.ViewModels
                 width = value;
                 rect.Width = value;
                 OnPropertyChange(nameof(Width));
-            }
-        }
-
-        public string SWidth
-        {
-            get { return swidth; }
-            set
-            {
-                swidth = value;
-                Width = int.Parse(value);
-                OnPropertyChange(nameof(SWidth));
-            }
-        }
-
-        public string SHeight
-        {
-            get { return sheight; }
-            set
-            {
-                sheight = value;
-                Height = int.Parse(value);
-                OnPropertyChange(nameof(SWidth));
             }
         }
         public int Height

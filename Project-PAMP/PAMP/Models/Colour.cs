@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace PAMP.Models
 {
-    public class Colour
+    [Serializable()]
+    public class Colour : ISerializable
     {
         int red, green, blue, alpha;
 
@@ -50,6 +52,22 @@ namespace PAMP.Models
         public Brush toBrush()
         {
             return new SolidColorBrush(Color.FromArgb((byte)alpha, (byte)red, (byte)green, (byte)blue));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Red", red);
+            info.AddValue("Green", green);
+            info.AddValue("Blue", blue);
+            info.AddValue("Alpha", alpha);
+        }
+
+        public Colour(SerializationInfo info, StreamingContext context)
+        {
+            red = (int)info.GetValue("Red", typeof(int));
+            green = (int)info.GetValue("Green", typeof(int));
+            blue = (int)info.GetValue("Blue", typeof(int));
+            alpha = (int)info.GetValue("Alpha", typeof(int));
         }
 
         public int Red { get { return red; } set { red = value; } }

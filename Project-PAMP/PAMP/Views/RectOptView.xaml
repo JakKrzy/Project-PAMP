@@ -26,10 +26,10 @@
                 <CheckBox Grid.Column="1" Margin="5" IsChecked="{Binding Fill}"></CheckBox>
                 <TextBlock Foreground="White" Text="Width" Margin="5" Grid.Row="1"
                            HorizontalAlignment="Center"></TextBlock>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding SWidth}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Width, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBlock Foreground="White" Text="Height" Margin="5" Grid.Row="2"
                            HorizontalAlignment="Center"></TextBlock>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SHeight}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Height, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </StackPanel>
     </Grid>

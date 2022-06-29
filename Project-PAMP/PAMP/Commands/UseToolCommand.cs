@@ -62,7 +62,7 @@ namespace PAMP.Commands
                     {
                         for(var i = _x; i < _x + r.Width; i++)
                         {
-                            for(var j = _y; j < _y - r.Height; j++)
+                            for(var j = _y; j < _y + r.Height; j++)
                             {
                                 if (i < 0 || j < 0 || i >= width || j >= height) continue;
                                 _workspace.Image.SelectedLayer.setPixel(c, i, j);
@@ -78,25 +78,24 @@ namespace PAMP.Commands
                             if (i < 0 || j < 0 || i >= width || j >= height) continue;
                             _workspace.Image.SelectedLayer.setPixel(c, i, j);
                             _imageViewModel.SetPixel(i, j, c);
-                            j = _y - r.Height;
+                            j = _y + r.Height;
                             if (i < 0 || j < 0 || i >= width || j >= height) continue;
                             _workspace.Image.SelectedLayer.setPixel(c, i, j);
                             _imageViewModel.SetPixel(i, j, c);
                         }
-                        for(int i = _y; i < _y - r.Height; i--)
+                        for(int i = _y; i < _y + r.Height; i++)
                         {
                             var j = _x;
-                            if(i < 0 || j < 0 || i >= width || j >= height) continue;
+                            if(i < 0 || j < 0 || j >= width || i >= height) continue;
                             _workspace.Image.SelectedLayer.setPixel(c, j, i);
                             _imageViewModel.SetPixel(j, i, c);
                             j = _x + r.Width;
-                            if (i < 0 || j < 0 || i >= width || j >= height) continue;
+                            if (i < 0 || j < 0 || j >= width || i >= height) continue;
                             _workspace.Image.SelectedLayer.setPixel(c, j, i);
                             _imageViewModel.SetPixel(j, i, c);
                         }
                     }
                     break;
-
             }
         }
     }

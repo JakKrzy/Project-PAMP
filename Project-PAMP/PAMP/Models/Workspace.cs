@@ -31,18 +31,34 @@ namespace PAMP.Models
         public void exportImage()
         {
             Bitmap bmp = new Bitmap(image.Width, image.Height);
-            for(int i = 0; i < bmp.Width; i++)
+            List<Layer> layers = Image.LayerList;
+            for(int i = 0; i < image.Width; i++)
             {
-                for(int j = 0; j < bmp.Height; j++)
+                for(int j = 0; j < image.Height; j++)
                 {
-                    Colour _c = Image.SelectedLayer.BMP[i, j];
-                    Color c = Color.FromArgb(_c.Alpha, _c.Red, _c.Green, _c.Blue);
+                    Color c = Color.FromArgb(0, 0, 0, 0);
                     bmp.SetPixel(i, j, c);
                 }
             }
+            for(int k = 0; k < layers.Count; k++)
+            {
+                for (int i = 0; i < bmp.Width; i++)
+                {
+                    for (int j = 0; j < bmp.Height; j++)
+                    {
+                        Colour _c = Image.LayerList[k].BMP[i, j];
+                        if (_c.Alpha == 0) continue;
+                        Color c = Color.FromArgb(_c.Alpha, _c.Red, _c.Green, _c.Blue);
+                        bmp.SetPixel(i, j, c);
+                    }
+                }
+            }
+                
+          
             string filePath = "NewImage.png";
             FileStream fs = File.Create(filePath);
             bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+            fs.Close();
         }
     }
 }

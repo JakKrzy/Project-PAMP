@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PAMP.Models
 {
-    public class Image
+    [Serializable()]
+    public class Image : ISerializable
     {
         Layer selectedLayer;
         List<Layer> layerList;
@@ -26,10 +28,9 @@ namespace PAMP.Models
         public int Width { get { return width; } }
 
         public Layer SelectedLayer { get; set; }
-
-        public void export()
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            // TODO
+            
         }
     }
 }

@@ -28,6 +28,7 @@ namespace PAMP.ViewModels
             _layers = new ObservableCollection<LayerViewModel>();
             Layer bg = new("Background", 147, 100);
             _layers.Add(new LayerViewModel(bg, _workspace, this));
+            _workspace.Image.LayerList.Add(bg);
             _workspace.Image.SelectedLayer = bg;
             NewLayerCommand = new NewLayerCommand(_workspace, this);
         }

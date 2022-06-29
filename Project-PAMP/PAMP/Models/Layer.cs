@@ -36,7 +36,7 @@ namespace PAMP.Models
         public void setPixel(Colour c, int x, int y)
         {
             if (x < 0 && y < 0) throw new ArgumentException();
-            if (x > width && y > height) throw new ArgumentException();
+            if (x >= width && y >= height) throw new ArgumentException();
             bmp[x, y].setColour(c.Red, c.Green, c.Blue, c.Alpha);
         }
 

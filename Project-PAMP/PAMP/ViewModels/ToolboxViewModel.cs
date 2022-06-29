@@ -52,8 +52,8 @@ namespace PAMP.ViewModels
             _workspace = ws;
             _toolOptionsStore = tos;
             _toolOptionsStore.CurrentViewModel = new PencilOptViewModel(ws);
-            PC = new Colour(0,0,0);
-            SC = new Colour(255,255,255); 
+            PC = new Colour(255,255,255);
+            SC = new Colour(0,0,0); 
             PBrush = PC.toBrush();
             SBrush = SC.toBrush();
             SelectPencilCommand = new SelectPencilCommand(ws, this, _toolOptionsStore);
@@ -80,7 +80,7 @@ namespace PAMP.ViewModels
             get { return PC.Red; }
             set
             {
-                PC.Red = value;
+                PC = new Colour(value, PGreen, PBlue, PAlpha);
                 PBrush = PC.toBrush();
                 OnPropertyChange(nameof(PRed));
             }
@@ -90,7 +90,7 @@ namespace PAMP.ViewModels
             get { return PC.Green; }
             set
             {
-                PC.Green = value;
+                PC = new Colour(PRed, value, PBlue, PAlpha);
                 PBrush = PC.toBrush();
                 OnPropertyChange(nameof(PGreen));
             }
@@ -101,7 +101,7 @@ namespace PAMP.ViewModels
             get { return PC.Blue; }
             set
             {
-                PC.Blue = value;
+                PC = new Colour(PRed, PGreen, value, PAlpha);
                 PBrush = PC.toBrush();
                 OnPropertyChange(nameof(PBlue));
             }
@@ -112,7 +112,7 @@ namespace PAMP.ViewModels
             get { return PC.Alpha; }
             set
             {
-                PC.Alpha = value;
+                PC = new Colour(PRed, PGreen, PBlue, value);
                 PBrush = PC.toBrush();
                 OnPropertyChange(nameof(PAlpha));
             }
@@ -122,7 +122,7 @@ namespace PAMP.ViewModels
             get { return SC.Red; }
             set
             {
-                SC.Red = value;
+                SC = new Colour(value, SGreen, SBlue, SAlpha);
                 SBrush = SC.toBrush();
                 OnPropertyChange(nameof(SRed));
             }
@@ -133,7 +133,7 @@ namespace PAMP.ViewModels
             get { return SC.Green; }
             set
             {
-                SC.Green = value;
+                SC = new Colour(SRed, value, SBlue, SAlpha);
                 SBrush = SC.toBrush();
                 OnPropertyChange(nameof(SGreen));
             }
@@ -144,7 +144,7 @@ namespace PAMP.ViewModels
             get { return SC.Blue; }
             set
             {
-                SC.Blue = value;
+                SC = new Colour(SRed, SGreen, value, SAlpha);
                 SBrush = SC.toBrush();
                 OnPropertyChange(nameof(SBlue));
             }
@@ -155,7 +155,7 @@ namespace PAMP.ViewModels
             get { return SC.Alpha; }
             set
             {
-                SC.Alpha = value;
+                SC = new Colour(SRed, SGreen, SBlue, value);
                 SBrush = SC.toBrush();
                 OnPropertyChange(nameof(SAlpha));
             }
