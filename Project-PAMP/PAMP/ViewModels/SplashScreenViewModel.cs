@@ -12,9 +12,11 @@ namespace PAMP.ViewModels
     public class SplashScreenViewModel : ViewModelBase 
     {
         public ICommand NewProjectCommand { get; }
+        public ICommand LoadProjectCommand { get; }
         public SplashScreenViewModel(NavigationStore ns)
         {
             NewProjectCommand = new NewProjectCommand(ns);
+            LoadProjectCommand = new LoadProjectCommand(ns);
         }
     }
 }

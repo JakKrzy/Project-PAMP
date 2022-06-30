@@ -26,10 +26,13 @@ namespace PAMP.ViewModels
         {
             _workspace = ws;
             _layers = new ObservableCollection<LayerViewModel>();
-            Layer bg = new("Background", 147, 100);
-            _layers.Add(new LayerViewModel(bg, _workspace, this));
-            _workspace.Image.LayerList.Add(bg);
-            _workspace.Image.SelectedLayer = bg;
+            foreach(Layer layer in ws.Image.LayerList)
+            {
+                _layers.Add(new LayerViewModel(layer, _workspace, this));
+            }
+            _workspace.Image.SelectedLayer = _workspace.Image.LayerList[0];
+            //_workspace.Image.LayerList.Add(bg);
+            //_workspace.Image.SelectedLayer = bg;
             NewLayerCommand = new NewLayerCommand(_workspace, this);
         }
 

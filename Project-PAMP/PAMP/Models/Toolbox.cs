@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PAMP.Models
 {
-    public class Toolbox
+    [Serializable()]
+    public class Toolbox : ISerializable
     {
         Tool selectedTool;
 
@@ -19,6 +21,11 @@ namespace PAMP.Models
         {
             get { return selectedTool; }
             set { selectedTool = value; }
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("SelectedTool", selectedTool);
         }
     }
 }

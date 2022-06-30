@@ -30,7 +30,15 @@ namespace PAMP.Models
         public Layer SelectedLayer { get; set; }
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            
+            info.AddValue("Width", Width);
+            info.AddValue("Height", Height);
+            info.AddValue("Layers", layerList);
+        }
+        public Image(SerializationInfo info, StreamingContext context)
+        {
+            width = info.GetInt32("Width");
+            height = info.GetInt32("Height");
+            layerList = (List<Layer>)info.GetValue("Layers", typeof(List<Layer>));
         }
     }
 }

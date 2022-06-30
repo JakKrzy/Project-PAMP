@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace PAMP.Models
 {
-    public class Workspace
+    [Serializable()]
+    public class Workspace : ISerializable
     {
         Toolbox toolbox;
         Image image;
@@ -53,12 +55,26 @@ namespace PAMP.Models
                     }
                 }
             }
+
+
                 
           
             string filePath = "NewImage.png";
             FileStream fs = File.Create(filePath);
             bmp.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
             fs.Close();
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+           
+            info.AddValue("Image", image);
+        }
+
+        public Workspace(SerializationInfo info, StreamingContext context)
+        {
+            toolbox = new Toolbox();
+            image = (Image)info.GetValue("Image", typeof(Image)); 
         }
     }
 }

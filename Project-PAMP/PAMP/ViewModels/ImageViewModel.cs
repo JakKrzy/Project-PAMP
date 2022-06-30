@@ -32,6 +32,11 @@ namespace PAMP.ViewModels
                     px.UseSecTool = new UseSecToolCommand(_workspace, this, i, j);
                     indexedPixels[i, j] = px;
                     _pixels.Add(px);
+                    foreach(Layer layer in _workspace.Image.LayerList)
+                    {
+                        if (layer.BMP[i, j].Alpha == 0) continue;
+                        px.Col = layer.BMP[i, j];
+                    }
                 }
             }
         }

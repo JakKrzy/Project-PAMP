@@ -45,7 +45,7 @@
                             </Button.Background>
                         </Button>
                         <Button Content="Load project" Width="120" Padding="15" Margin="20"
-                              Foreground="White" FontFamily="Lato">
+                              Foreground="White" FontFamily="Lato" Command="{Binding LoadProjectCommand}">
                             <Button.Resources>
                                 <Style TargetType="Border">
                                     <Setter Property="CornerRadius" Value="5" />
